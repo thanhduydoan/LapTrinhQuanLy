@@ -76,3 +76,11 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh48
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.CopyComplete
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.dll
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.pdb
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.dll
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.SqlServer.dll
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.xml
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.SqlServer.xml
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.InitalCreate.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.GenerateResource.cache
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.add_class_person.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.add_class_employee.resources
