@@ -83,3 +83,5 @@ H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.pdb
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.csproj.AssemblyReference.cache
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.create_table_user.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.csproj.GenerateResource.cache
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.create_table_Account.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.create_table_role.resources

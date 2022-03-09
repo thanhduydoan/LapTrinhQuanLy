@@ -137,9 +137,18 @@
     <Compile Include="Migrations\202203090226148_create_table_user.Designer.cs">
       <DependentUpon>202203090226148_create_table_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203090259207_create_table_Account.cs" />
+    <Compile Include="Migrations\202203090259207_create_table_Account.Designer.cs">
+      <DependentUpon>202203090259207_create_table_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203090306394_create_table_role.cs" />
+    <Compile Include="Migrations\202203090306394_create_table_role.Designer.cs">
+      <DependentUpon>202203090306394_create_table_role.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BTLDbcontext.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,11 +187,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +208,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203090226148_create_table_user.resx">
       <DependentUpon>202203090226148_create_table_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203090259207_create_table_Account.resx">
+      <DependentUpon>202203090259207_create_table_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203090306394_create_table_role.resx">
+      <DependentUpon>202203090306394_create_table_role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

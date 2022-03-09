@@ -11,8 +11,8 @@ namespace DDTBaiTapLon486.Models
             : base("name=BTLDbcontext")
         {
         }
-        public virtual DbSet<User> users { get; set; }
-
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
