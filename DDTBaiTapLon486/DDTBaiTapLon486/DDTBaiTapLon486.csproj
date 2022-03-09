@@ -130,17 +130,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203071057491_cr.cs" />
-    <Compile Include="Migrations\202203071057491_cr.Designer.cs">
-      <DependentUpon>202203071057491_cr.cs</DependentUpon>
+    <Compile Include="Migrations\202203090226148_create_table_user.cs" />
+    <Compile Include="Migrations\202203090226148_create_table_user.Designer.cs">
+      <DependentUpon>202203090226148_create_table_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ApplicationDbcontext.cs" />
-    <Compile Include="Models\Autogenkey.cs" />
+    <Compile Include="Models\BTLDbcontext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,8 +202,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203071057491_cr.resx">
-      <DependentUpon>202203071057491_cr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202203090226148_create_table_user.resx">
+      <DependentUpon>202203090226148_create_table_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

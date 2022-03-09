@@ -84,3 +84,4 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh48
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.GenerateResource.cache
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.add_class_person.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.add_class_employee.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.AssemblyReference.cache
