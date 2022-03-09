@@ -145,10 +145,16 @@
     <Compile Include="Migrations\202203090306394_create_table_role.Designer.cs">
       <DependentUpon>202203090306394_create_table_role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203090407422_create_table_khachhang_sanpham.cs" />
+    <Compile Include="Migrations\202203090407422_create_table_khachhang_sanpham.Designer.cs">
+      <DependentUpon>202203090407422_create_table_khachhang_sanpham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BTLDbcontext.cs" />
+    <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\SanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203090306394_create_table_role.resx">
       <DependentUpon>202203090306394_create_table_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203090407422_create_table_khachhang_sanpham.resx">
+      <DependentUpon>202203090407422_create_table_khachhang_sanpham.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
