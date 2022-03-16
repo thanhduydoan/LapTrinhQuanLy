@@ -15,5 +15,7 @@ namespace DDTBaiTapLon486.Models
         public string Password { get; set; }
         [StringLength(10)]
         public string RoleID { get; set; }
+        public Role Role { get; set; }
+
     }
 }

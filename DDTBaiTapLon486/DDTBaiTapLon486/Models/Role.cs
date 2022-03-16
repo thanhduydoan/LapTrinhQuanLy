@@ -10,8 +10,9 @@ namespace DDTBaiTapLon486.Models
     {
         [Key]
         [StringLength(10)]
-        public string Roleid { get; set; }
+        public string RoleID { get; set; }
         [StringLength(30)]
-        public string Rolename { get; set; }
+        public string RoleName { get; set; }
+        public ICollection<Account> Accounts { get; set; }
     }
 }
