@@ -7,13 +7,13 @@ namespace DDTBaiTapLon486.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class create_table_role : IMigrationMetadata
+    public sealed partial class initial_create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create_table_role));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_create));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203090306394_create_table_role"; }
+            get { return "202203170308091_initial_create"; }
         }
         
         string IMigrationMetadata.Source

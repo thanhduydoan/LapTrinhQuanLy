@@ -8,13 +8,14 @@ namespace DDTBaiTapLon486.Models
     public partial class BTLDbcontext : DbContext
     {
         public BTLDbcontext()
-            : base("name=BTLDbcontext")
+            : base("name=BTLDbcontext1")
         {
         }
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<Giohang> Giohangs { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
