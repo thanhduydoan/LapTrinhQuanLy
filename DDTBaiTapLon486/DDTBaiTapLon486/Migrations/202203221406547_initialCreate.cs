@@ -3,7 +3,7 @@ namespace DDTBaiTapLon486.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial_create : DbMigration
+    public partial class initialCreate : DbMigration
     {
         public override void Up()
         {
@@ -35,7 +35,11 @@ namespace DDTBaiTapLon486.Migrations
                         MaDonHang = c.Int(nullable: false, identity: true),
                         TenDonHang = c.String(),
                         Tenkhachhang = c.String(),
-                        KhachHang_Makhachhang = c.Int(),
+                        NgayBan = c.DateTime(nullable: false),
+                        DonGia = c.Single(nullable: false),
+                        SoLuong = c.Int(nullable: false),
+                        ThanhTien = c.Single(nullable: false),
+                        KhachHang_Makhachhang = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.MaDonHang)
                 .ForeignKey("dbo.KhachHangs", t => t.KhachHang_Makhachhang)
@@ -45,23 +49,12 @@ namespace DDTBaiTapLon486.Migrations
                 "dbo.KhachHangs",
                 c => new
                     {
-                        Makhachhang = c.Int(nullable: false, identity: true),
+                        Makhachhang = c.String(nullable: false, maxLength: 128),
                         Tenkhachhang = c.String(),
                         SDT = c.Int(nullable: false),
                         Diachi = c.String(),
                     })
                 .PrimaryKey(t => t.Makhachhang);
-            
-            CreateTable(
-                "dbo.SanPhams",
-                c => new
-                    {
-                        Sanphamid = c.Int(nullable: false, identity: true),
-                        Tensanpham = c.String(),
-                        Gia = c.Single(nullable: false),
-                        Soluong = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Sanphamid);
             
         }
         
@@ -71,7 +64,6 @@ namespace DDTBaiTapLon486.Migrations
             DropForeignKey("dbo.Accounts", "RoleID", "dbo.Roles");
             DropIndex("dbo.Giohangs", new[] { "KhachHang_Makhachhang" });
             DropIndex("dbo.Accounts", new[] { "RoleID" });
-            DropTable("dbo.SanPhams");
             DropTable("dbo.KhachHangs");
             DropTable("dbo.Giohangs");
             DropTable("dbo.Roles");

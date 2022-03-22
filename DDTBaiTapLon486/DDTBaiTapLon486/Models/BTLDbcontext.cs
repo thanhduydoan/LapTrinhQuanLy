@@ -5,17 +5,18 @@ using System.Linq;
 
 namespace DDTBaiTapLon486.Models
 {
-    public partial class BTLDbcontext : DbContext
+    public partial class BtlDbContext : DbContext
     {
-        public BTLDbcontext()
-            : base("name=BTLDbcontext1")
+        public BtlDbContext()
+            : base("name=BtlDbContext")
         {
         }
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Giohang> Giohangs { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
+
+        public DbSet<Account> accounts { get; set; }
+        public DbSet<KhachHang> khacHangs { get; set; }
+        public DbSet<Giohang> giohangs  { get; set; }
+        public DbSet<Role> roles { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

@@ -7,13 +7,13 @@ namespace DDTBaiTapLon486.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initial_create : IMigrationMetadata
+    public sealed partial class initialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_create));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203170308091_initial_create"; }
+            get { return "202203221406547_initialCreate"; }
         }
         
         string IMigrationMetadata.Source

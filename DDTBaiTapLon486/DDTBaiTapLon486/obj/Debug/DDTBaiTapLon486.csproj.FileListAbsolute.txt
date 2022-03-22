@@ -80,5 +80,6 @@ H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.cspr
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.csproj.CopyComplete
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.dll
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.pdb
-H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.initial_create.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.initialCreate.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.csproj.GenerateResource.cache
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.csproj.AssemblyReference.cache

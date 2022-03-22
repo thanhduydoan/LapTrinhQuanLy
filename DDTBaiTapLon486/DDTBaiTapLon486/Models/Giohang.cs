@@ -13,5 +13,9 @@ namespace DDTBaiTapLon486.Models
         public string TenDonHang { get; set; }
         public string Tenkhachhang { get; set; }
         public KhachHang KhachHang { get; set; }
+        public DateTime NgayBan { get; set; }
+        public float DonGia { get; set; }
+        public int  SoLuong { get; set; }
+        public float ThanhTien { get; set; }
     }
 }

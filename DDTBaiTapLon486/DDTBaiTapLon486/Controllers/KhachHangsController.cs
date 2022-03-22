@@ -10,107 +10,119 @@ using DDTBaiTapLon486.Models;
 
 namespace DDTBaiTapLon486.Controllers
 {
-    public class RolesController : Controller
+    public class KhachHangsController : Controller
     {
-        private BTLDbcontext db = new BTLDbcontext();
-
-        // GET: Roles
+        private BtlDbContext db = new BtlDbContext();
+        Autogenkey auto = new Autogenkey();
+        // GET: KhachHangs
         public ActionResult Index()
         {
-            return View(db.Roles.ToList());
+            return View(db.khacHangs.ToList());
         }
 
-        // GET: Roles/Details/5
+        // GET: KhachHangs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
-            if (role == null)
+            KhachHang khachHang = db.khacHangs.Find(id);
+            if (khachHang == null)
             {
                 return HttpNotFound();
             }
-            return View(role);
+            return View(khachHang);
         }
 
-        // GET: Roles/Create
+        // GET: KhachHangs/Create
         public ActionResult Create()
         {
+            string NewID = "";
+            var kh = db.khacHangs.ToList().OrderByDescending(c => c.Makhachhang);
+            var count = db.khacHangs.Count();
+            if (count == 0)
+            {
+                NewID = "Kh001";
+            }
+            else
+            {
+                NewID = auto.GenerateKey(kh.FirstOrDefault().Makhachhang);
+            }
+            ViewBag.khId = NewID;
             return View();
         }
 
-        // POST: Roles/Create
+        // POST: KhachHangs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Roleid,Rolename")] Role role)
+        public ActionResult Create([Bind(Include = "Makhachhang,Tenkhachhang,SDT,Diachi")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
-                db.Roles.Add(role);
+                db.khacHangs.Add(khachHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(role);
+            return View(khachHang);
         }
 
-        // GET: Roles/Edit/5
+        // GET: KhachHangs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
-            if (role == null)
+            KhachHang khachHang = db.khacHangs.Find(id);
+            if (khachHang == null)
             {
                 return HttpNotFound();
             }
-            return View(role);
+            return View(khachHang);
         }
 
-        // POST: Roles/Edit/5
+        // POST: KhachHangs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Roleid,Rolename")] Role role)
+        public ActionResult Edit([Bind(Include = "Makhachhang,Tenkhachhang,SDT,Diachi")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(role).State = EntityState.Modified;
+                db.Entry(khachHang).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(role);
+            return View(khachHang);
         }
 
-        // GET: Roles/Delete/5
+        // GET: KhachHangs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
-            if (role == null)
+            KhachHang khachHang = db.khacHangs.Find(id);
+            if (khachHang == null)
             {
                 return HttpNotFound();
             }
-            return View(role);
+            return View(khachHang);
         }
 
-        // POST: Roles/Delete/5
+        // POST: KhachHangs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Role role = db.Roles.Find(id);
-            db.Roles.Remove(role);
+            KhachHang khachHang = db.khacHangs.Find(id);
+            db.khacHangs.Remove(khachHang);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
