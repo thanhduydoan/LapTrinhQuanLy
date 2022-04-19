@@ -6,14 +6,14 @@ namespace DDTBaiThucHanh486.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitalCreate : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class Initial_Create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitalCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial_Create));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203080101004_InitalCreate"; }
+            get { return "202204190059176_Initial_Create"; }
         }
         
         string IMigrationMetadata.Source

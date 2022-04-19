@@ -25,6 +25,11 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("User", "Index", "Users")</li>
                     <li>@Html.ActionLink("Role", "Index", "Roles")</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "Admin" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("User", "Index", "User", new { area = "User" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
         </div>

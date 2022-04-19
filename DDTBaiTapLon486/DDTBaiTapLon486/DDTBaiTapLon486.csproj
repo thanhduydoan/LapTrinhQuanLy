@@ -129,14 +129,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\User\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202203221406547_initialCreate.cs" />
     <Compile Include="Migrations\202203221406547_initialCreate.Designer.cs">
       <DependentUpon>202203221406547_initialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204181322556_alter_table_account.cs" />
+    <Compile Include="Migrations\202204181322556_alter_table_account.Designer.cs">
+      <DependentUpon>202204181322556_alter_table_account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204181348555_update_table_account.cs" />
+    <Compile Include="Migrations\202204181348555_update_table_account.Designer.cs">
+      <DependentUpon>202204181348555_update_table_account.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -148,6 +162,7 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\StringProcess.cs" />
+    <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +176,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\User\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -191,10 +210,22 @@
     <Content Include="Views\KhachHangs\Details.cshtml" />
     <Content Include="Views\KhachHangs\Edit.cshtml" />
     <Content Include="Views\KhachHangs\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -212,6 +243,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203221406547_initialCreate.resx">
       <DependentUpon>202203221406547_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204181322556_alter_table_account.resx">
+      <DependentUpon>202204181322556_alter_table_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204181348555_update_table_account.resx">
+      <DependentUpon>202204181348555_update_table_account.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

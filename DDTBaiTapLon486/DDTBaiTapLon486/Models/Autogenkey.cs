@@ -10,7 +10,7 @@ namespace DDTBaiTapLon486.Models
     {
         public string GenerateKey(string id)
         {
-
+            //Khai báo 2 biến để lưu giá trị số và chữ
             string strkey = "";
             string numPart = "", strPart = "", strPhanso = "";
 
@@ -18,7 +18,7 @@ namespace DDTBaiTapLon486.Models
             strPart = Regex.Match(id, @"\D+").Value;
 
             int Phanso = Convert.ToInt32(numPart) + 1;
-
+            //Tách phần chữ và phần số của tham số id
             for (int i = 0; i < numPart.Length - Phanso.ToString().Length; i++)
             {
                 strPhanso += "0";

@@ -14,6 +14,7 @@ namespace DDTBaiTapLon486.Controllers
     {
         private BtlDbContext db = new BtlDbContext();
         Autogenkey auto = new Autogenkey();
+        StringProcess process = new StringProcess();
         // GET: KhachHangs
         public ActionResult Index()
         {
@@ -38,38 +39,37 @@ namespace DDTBaiTapLon486.Controllers
         // GET: KhachHangs/Create
         public ActionResult Create()
         {
-            string NewID = "";
-            var kh = db.khacHangs.ToList().OrderByDescending(c => c.Makhachhang);
+            string newid = "";
+            var emp = db.khacHangs.ToList().OrderByDescending(c => c.Makhachhang);
             var count = db.khacHangs.Count();
             if (count == 0)
             {
-                NewID = "Kh001";
+                newid = "kh001";
             }
             else
             {
-                NewID = auto.GenerateKey(kh.FirstOrDefault().Makhachhang);
+                newid = auto.GenerateKey(emp.FirstOrDefault().Makhachhang);
             }
-            ViewBag.khId = NewID;
+            ViewBag.newkhid = newid;
             return View();
         }
 
-        // POST: KhachHangs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+// POST: KhachHangs/Create
+// To protect from overposting attacks, enable the specific properties you want to bind to, for 
+// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Makhachhang,Tenkhachhang,SDT,Diachi")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
-            {
+            { 
                 db.khacHangs.Add(khachHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(khachHang);
-        }
-
+        }   
+            
         // GET: KhachHangs/Edit/5
         public ActionResult Edit(string id)
         {

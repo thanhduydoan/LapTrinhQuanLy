@@ -8,6 +8,7 @@ namespace DDTBaiTapLon486.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles ="Admin")]
         public ActionResult Index()
         {
             return View();

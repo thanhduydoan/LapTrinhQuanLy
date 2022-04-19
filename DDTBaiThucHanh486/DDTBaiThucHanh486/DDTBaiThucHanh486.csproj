@@ -128,30 +128,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203080101004_InitalCreate.cs" />
-    <Compile Include="Migrations\202203080101004_InitalCreate.Designer.cs">
-      <DependentUpon>202203080101004_InitalCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203080104087_add_class_person.cs" />
-    <Compile Include="Migrations\202203080104087_add_class_person.Designer.cs">
-      <DependentUpon>202203080104087_add_class_person.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203080106217_add_class_employee.cs" />
-    <Compile Include="Migrations\202203080106217_add_class_employee.Designer.cs">
-      <DependentUpon>202203080106217_add_class_employee.cs</DependentUpon>
+    <Compile Include="Migrations\202204190059176_Initial_Create.cs" />
+    <Compile Include="Migrations\202204190059176_Initial_Create.Designer.cs">
+      <DependentUpon>202204190059176_Initial_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Encryption.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\UserRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +190,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Course\View.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -210,14 +214,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203080101004_InitalCreate.resx">
-      <DependentUpon>202203080101004_InitalCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203080104087_add_class_person.resx">
-      <DependentUpon>202203080104087_add_class_person.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203080106217_add_class_employee.resx">
-      <DependentUpon>202203080106217_add_class_employee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204190059176_Initial_Create.resx">
+      <DependentUpon>202204190059176_Initial_Create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
