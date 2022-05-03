@@ -152,6 +152,10 @@
     <Compile Include="Migrations\202204181348555_update_table_account.Designer.cs">
       <DependentUpon>202204181348555_update_table_account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205030823041_create_table_NhaCungCap.cs" />
+    <Compile Include="Migrations\202205030823041_create_table_NhaCungCap.Designer.cs">
+      <DependentUpon>202205030823041_create_table_NhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Autogenkey.cs" />
@@ -159,6 +163,7 @@
     <Compile Include="Models\Encryption.cs" />
     <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\StringProcess.cs" />
@@ -249,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204181348555_update_table_account.resx">
       <DependentUpon>202204181348555_update_table_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205030823041_create_table_NhaCungCap.resx">
+      <DependentUpon>202205030823041_create_table_NhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

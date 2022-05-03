@@ -6,7 +6,7 @@ using System.Web.Security;
 
 namespace DDTBaiThucHanh486.Models
 {
-    public class UserRoleProvider : RoleProvider
+    public class UsersRoleProvider : RoleProvider
     {
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -45,7 +45,7 @@ namespace DDTBaiThucHanh486.Models
                                  where user.Username == username
                                  select role.RoleID).ToArray();
                 return userRoles;
-              }
+            }
         }
 
         public override string[] GetUsersInRole(string roleName)

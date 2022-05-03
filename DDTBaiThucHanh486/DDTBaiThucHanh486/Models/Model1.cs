@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace DDTBaiThucHanh486.Models
 {
-    public partial class Model1 : DbContext
+    public partial class Model1
+        : DbContext
     {
         public Model1()
             : base("name=LTQLdbcontext")

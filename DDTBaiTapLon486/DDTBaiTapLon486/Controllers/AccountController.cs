@@ -22,14 +22,22 @@ namespace DDTBaiTapLon486.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Register(Account account)
         {
-            if (ModelState.IsValid)
+            try
             {
-                account.Password = encryption.PasswordEncryption(account.Password);
-                db.accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Login", "Account");
+                if (ModelState.IsValid)
+                {
+                    account.Password = encryption.PasswordEncryption(account.Password);
+                    db.accounts.Add(account);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Account");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Tài khoản đã tồn tại");
             }
             return View(account);
         }

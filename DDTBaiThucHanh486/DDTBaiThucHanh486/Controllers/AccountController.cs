@@ -24,13 +24,20 @@ namespace DDTBaiThucHanh486.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(Account account)
         {
-            if (ModelState.IsValid)
-            {
-                account.Password = encryption.PasswordEncryption(account.Password);
-                db.Accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Login", "Account");
+            try {
+                if (ModelState.IsValid)
+                {
+                    account.Password = encryption.PasswordEncryption(account.Password);
+                    db.Accounts.Add(account);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Account");
+                }
             }
+            catch
+            {
+                ModelState.AddModelError("", "Tài khoản đã tồn tại");
+            }
+            
             return View(account);
         }
         // GET: Account
@@ -60,7 +67,7 @@ namespace DDTBaiThucHanh486.Controllers
                     {
                         var passToMD5 = encryption.PasswordEncryption(acc.Password);
                         var account = db.Accounts.Where(a => a.Username.Equals(acc.Username) && a.Password.Equals(passToMD5)).Count();
-                        if (account == 0)
+                        if (account == 1)
                         {
                             FormsAuthentication.GetAuthCookie(acc.Username, false);//Luu trang thai dang nhap
                             Session["idUser"] = acc.Username;
