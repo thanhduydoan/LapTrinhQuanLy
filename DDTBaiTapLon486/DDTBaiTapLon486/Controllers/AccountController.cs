@@ -25,8 +25,6 @@ namespace DDTBaiTapLon486.Controllers
         [AllowAnonymous]
         public ActionResult Register(Account account)
         {
-            try
-            {
                 if (ModelState.IsValid)
                 {
                     account.Password = encryption.PasswordEncryption(account.Password);
@@ -34,11 +32,6 @@ namespace DDTBaiTapLon486.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Login", "Account");
                 }
-            }
-            catch
-            {
-                ModelState.AddModelError("", "Tài khoản đã tồn tại");
-            }
             return View(account);
         }
         // GET: Account
@@ -58,6 +51,7 @@ namespace DDTBaiTapLon486.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Login(Account acc, string returnUrl)
         {
             try
@@ -68,7 +62,7 @@ namespace DDTBaiTapLon486.Controllers
                     {
                         var passToMD5 = encryption.PasswordEncryption(acc.Password);
                         var account = db.accounts.Where(a => a.Username.Equals(acc.Username) && a.Password.Equals(passToMD5)).Count();
-                        if (account == 0)
+                        if (account == 1)
                         {
                             FormsAuthentication.GetAuthCookie(acc.Username, false);//Luu trang thai dang nhap
                             Session["idUser"] = acc.Username;
@@ -85,6 +79,7 @@ namespace DDTBaiTapLon486.Controllers
                 ModelState.AddModelError("", "Hệ thống đang bảo trì vui lòng liên hệ với quản trị viên");
             }
             return View(acc);
+        
         }
 
         
@@ -110,7 +105,6 @@ namespace DDTBaiTapLon486.Controllers
                         {
                             return 2;
                         }
-                    
                 }
             }
             return 0;

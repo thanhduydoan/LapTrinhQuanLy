@@ -86,3 +86,4 @@ H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.cspr
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.alter_table_account.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.update_table_account.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.create_table_NhaCungCap.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.c.resources

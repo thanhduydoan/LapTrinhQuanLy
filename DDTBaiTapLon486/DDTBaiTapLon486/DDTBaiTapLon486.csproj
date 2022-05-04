@@ -156,6 +156,10 @@
     <Compile Include="Migrations\202205030823041_create_table_NhaCungCap.Designer.cs">
       <DependentUpon>202205030823041_create_table_NhaCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205030855259_c.cs" />
+    <Compile Include="Migrations\202205030855259_c.Designer.cs">
+      <DependentUpon>202205030855259_c.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Autogenkey.cs" />
@@ -257,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205030823041_create_table_NhaCungCap.resx">
       <DependentUpon>202205030823041_create_table_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205030855259_c.resx">
+      <DependentUpon>202205030855259_c.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

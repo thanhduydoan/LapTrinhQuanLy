@@ -12,7 +12,6 @@ namespace DDTBaiTapLon486.Models
         [Required(ErrorMessage ="Tên người dùng không được để trống")]
         public string Username { get; set; }
         [DataType(DataType.Password)]
-        [StringLength(5)]
         [Required(ErrorMessage ="Mật khẩu không được để trống")]
         public string Password { get; set; }
         [StringLength(3)]
