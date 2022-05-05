@@ -97,11 +97,11 @@ namespace DDTBaiTapLon486.Controllers
                 if (user != null)
                 {
                     var role = db.accounts.Find(user.ToString()).RoleID;
-                        if (role.ToString() == "1")
+                        if (role.ToString() == "Admin")
                         {
                             return 1;
                         }
-                        else if (role.ToString() == "2")
+                        else if (role.ToString() == "User")
                         {
                             return 2;
                         }
