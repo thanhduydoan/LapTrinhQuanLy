@@ -134,9 +134,12 @@
     <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GiohangsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\NhaCungCapsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SanPhamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +229,21 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Giohangs\Create.cshtml" />
+    <Content Include="Views\Giohangs\Delete.cshtml" />
+    <Content Include="Views\Giohangs\Details.cshtml" />
+    <Content Include="Views\Giohangs\Edit.cshtml" />
+    <Content Include="Views\Giohangs\Index.cshtml" />
+    <Content Include="Views\NhaCungCaps\Create.cshtml" />
+    <Content Include="Views\NhaCungCaps\Delete.cshtml" />
+    <Content Include="Views\NhaCungCaps\Details.cshtml" />
+    <Content Include="Views\NhaCungCaps\Edit.cshtml" />
+    <Content Include="Views\NhaCungCaps\Index.cshtml" />
+    <Content Include="Views\SanPhams\Create.cshtml" />
+    <Content Include="Views\SanPhams\Delete.cshtml" />
+    <Content Include="Views\SanPhams\Details.cshtml" />
+    <Content Include="Views\SanPhams\Edit.cshtml" />
+    <Content Include="Views\SanPhams\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
