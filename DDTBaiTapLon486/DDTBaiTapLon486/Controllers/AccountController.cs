@@ -13,6 +13,10 @@ namespace DDTBaiTapLon486.Controllers
     {
         Encryption encryption = new Encryption();
         BtlDbContext db = new BtlDbContext();
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Register()
@@ -25,13 +29,13 @@ namespace DDTBaiTapLon486.Controllers
         [AllowAnonymous]
         public ActionResult Register(Account account)
         {
-                if (ModelState.IsValid)
-                {
-                    account.Password = encryption.PasswordEncryption(account.Password);
-                    db.accounts.Add(account);
-                    db.SaveChanges();
-                    return RedirectToAction("Login", "Account");
-                }
+            if (ModelState.IsValid)
+            {
+                account.Password = encryption.PasswordEncryption(account.Password);
+                db.accounts.Add(account);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Account");
+            }
             return View(account);
         }
         // GET: Account
@@ -61,34 +65,33 @@ namespace DDTBaiTapLon486.Controllers
                     using (var db = new BtlDbContext())
                     {
                         var passToMD5 = encryption.PasswordEncryption(acc.Password);
-                        var account = db.accounts.Where(a => a.Username.Equals(acc.Username) && a.Password.Equals(passToMD5)).Count();
+                        var account = db.accounts.Where(m => m.Username.Equals(acc.Username) && m.Password.Equals(passToMD5)).Count();
                         if (account == 1)
                         {
-                            FormsAuthentication.GetAuthCookie(acc.Username, false);//Luu trang thai dang nhap
+                            FormsAuthentication.SetAuthCookie(acc.Username, false);
                             Session["idUser"] = acc.Username;
                             Session["roleUser"] = acc.RoleID;
-                            return RedirectToAction(returnUrl);
+                            return RedirectToLocal(returnUrl);
                         }
-                        ModelState.AddModelError("", "Thông tin đăng nhập sai");
+                        ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
                     }
                 }
+
                 ModelState.AddModelError("", "Nhập cả username và password");
             }
             catch
             {
-                ModelState.AddModelError("", "Hệ thống đang bảo trì vui lòng liên hệ với quản trị viên");
+                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
             }
             return View(acc);
-        
         }
-
-        
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             Session["idUser"] = null;
             return RedirectToAction("Login", "Account");
         }
+
         private int CheckSession()//Kiểm tra quyền đăng nhập
         {
             using (var db = new BtlDbContext())
@@ -97,6 +100,8 @@ namespace DDTBaiTapLon486.Controllers
                 if (user != null)
                 {
                     var role = db.accounts.Find(user.ToString()).RoleID;
+                    if (role != null)
+                    {
                         if (role.ToString() == "Admin")
                         {
                             return 1;
@@ -105,6 +110,7 @@ namespace DDTBaiTapLon486.Controllers
                         {
                             return 2;
                         }
+                    }
                 }
             }
             return 0;
@@ -115,22 +121,22 @@ namespace DDTBaiTapLon486.Controllers
             {
                 if (CheckSession() == 1)
                 {
-                    return RedirectToAction("Index", "Admin", new { Areas = "Admin" });
+                    return RedirectToAction("Index", "Admin", new { Area = "Admin" });
                 }
                 else if (CheckSession() == 2)
                 {
-                    return RedirectToAction("Index", "User", new { Areas = "User" });
-                }
-                if (Url.IsLocalUrl(returnUrl))
-                {
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "User", new { Area = "User" });
                 }
             }
-            return RedirectToAction("Index", "Home");
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
+
