@@ -14,6 +14,7 @@ namespace DDTBaiTapLon486.Areas.Admin.Controllers
     public class AccountAdminController : Controller
     {
         private BtlDbContext db = new BtlDbContext();
+        Encryption encryption = new Encryption();
 
         // GET: Admin/AccountAdmin
         public ActionResult Index()
@@ -53,6 +54,8 @@ namespace DDTBaiTapLon486.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var passToMD5 = encryption.PasswordEncryption(account.Password);
+                account.Password = passToMD5;
                 db.accounts.Add(account);
                 db.SaveChanges();
                 return RedirectToAction("Index");

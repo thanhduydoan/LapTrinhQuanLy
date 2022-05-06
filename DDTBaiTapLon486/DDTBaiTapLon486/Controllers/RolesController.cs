@@ -10,6 +10,7 @@ using DDTBaiTapLon486.Models;
 
 namespace DDTBaiTapLon486.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class RolesController : Controller
     {
         private BtlDbContext db = new BtlDbContext();

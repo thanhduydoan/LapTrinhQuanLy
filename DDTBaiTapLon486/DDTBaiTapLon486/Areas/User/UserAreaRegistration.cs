@@ -17,7 +17,7 @@ namespace DDTBaiTapLon486.Areas.User
             context.MapRoute(
                 "User_default",
                 "User/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new {area="User", controller="User", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

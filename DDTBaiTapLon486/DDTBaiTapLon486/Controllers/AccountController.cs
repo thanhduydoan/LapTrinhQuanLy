@@ -13,10 +13,6 @@ namespace DDTBaiTapLon486.Controllers
     {
         Encryption encryption = new Encryption();
         BtlDbContext db = new BtlDbContext();
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult Register()

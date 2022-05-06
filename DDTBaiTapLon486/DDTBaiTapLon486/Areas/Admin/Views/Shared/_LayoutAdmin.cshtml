@@ -16,12 +16,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Trang chủ", "Index","User", new { area = ""}, new { @class = "navbar-brand"})
+                @Html.ActionLink("Trang chủ", "Index", "User", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "Admin" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("User", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Role", "Index", "Roles", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("User", "Index", "User", new { area = "User" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Account", "Index", "AccountAdmin", new { area = "Admin" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
         </div>
