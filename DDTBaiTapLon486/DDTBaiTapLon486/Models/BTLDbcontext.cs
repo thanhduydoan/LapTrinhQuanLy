@@ -18,7 +18,7 @@ namespace DDTBaiTapLon486.Models
         public DbSet<Role> roles { get; set; }
         public DbSet<NhaCungCap> nhaCungCaps { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
-
+        public DbSet<Person> Persons { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

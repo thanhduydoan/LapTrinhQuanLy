@@ -55,6 +55,11 @@
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -139,8 +144,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
     <Compile Include="Controllers\NhaCungCapsController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SanPhamsController.cs" />
+    <Compile Include="Controllers\UploadExcelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,18 +171,28 @@
     <Compile Include="Migrations\202205030855259_c.Designer.cs">
       <DependentUpon>202205030855259_c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205070748073_Add_Table_UploadExcel.cs" />
+    <Compile Include="Migrations\202205070748073_Add_Table_UploadExcel.Designer.cs">
+      <DependentUpon>202205070748073_Add_Table_UploadExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205071359416_Create_Table_Person.cs" />
+    <Compile Include="Migrations\202205071359416_Create_Table_Person.Designer.cs">
+      <DependentUpon>202205071359416_Create_Table_Person.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Autogenkey.cs" />
+    <Compile Include="Models\Process\Autogenkey.cs" />
     <Compile Include="Models\BtlDbContext.cs" />
-    <Compile Include="Models\Encryption.cs" />
+    <Compile Include="Models\Process\Encryption.cs" />
+    <Compile Include="Models\Process\ExcelProcess.cs" />
     <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
-    <Compile Include="Models\StringProcess.cs" />
-    <Compile Include="Models\UsersRoleProvider.cs" />
+    <Compile Include="Models\Process\StringProcess.cs" />
+    <Compile Include="Models\Process\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,12 +269,19 @@
     <Content Include="Views\SanPhams\Details.cshtml" />
     <Content Include="Views\SanPhams\Edit.cshtml" />
     <Content Include="Views\SanPhams\Index.cshtml" />
+    <Content Include="Views\UploadExcel\Index.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Uploads\Excels\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205030855259_c.resx">
       <DependentUpon>202205030855259_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205070748073_Add_Table_UploadExcel.resx">
+      <DependentUpon>202205070748073_Add_Table_UploadExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205071359416_Create_Table_Person.resx">
+      <DependentUpon>202205071359416_Create_Table_Person.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
