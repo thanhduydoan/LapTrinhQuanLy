@@ -10,6 +10,7 @@ using DDTBaiTapLon486.Models;
 
 namespace DDTBaiTapLon486.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class NhaCungCapsController : Controller
     {
         private BtlDbContext db = new BtlDbContext();
@@ -48,13 +49,18 @@ namespace DDTBaiTapLon486.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaNhaCungCap,TenNhaCungCap")] NhaCungCap nhaCungCap)
         {
-            if (ModelState.IsValid)
-            {
-                db.nhaCungCaps.Add(nhaCungCap);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            try {
+                if (ModelState.IsValid)
+                {
+                    db.nhaCungCaps.Add(nhaCungCap);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch
+            {
+                ModelState.AddModelError("", "Trùng khóa chính");
+            }
             return View(nhaCungCap);
         }
 

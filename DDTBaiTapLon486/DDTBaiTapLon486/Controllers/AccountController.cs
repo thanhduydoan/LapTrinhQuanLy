@@ -54,7 +54,7 @@ namespace DDTBaiTapLon486.Controllers
         [AllowAnonymous]
         public ActionResult Login(Account acc, string returnUrl)
         {
-            try
+            //try
             {
                 if (!string.IsNullOrEmpty(acc.Username) && !string.IsNullOrEmpty(acc.Password))
                 {
@@ -75,10 +75,10 @@ namespace DDTBaiTapLon486.Controllers
 
                 ModelState.AddModelError("", "Nhập cả username và password");
             }
-            catch
-            {
-                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
-            }
+            //catch
+            //{
+            //    ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
+            //}
             return View(acc);
         }
         public ActionResult Logout()

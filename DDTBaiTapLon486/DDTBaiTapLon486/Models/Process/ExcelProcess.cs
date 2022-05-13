@@ -25,7 +25,7 @@ namespace DDTBaiTapLon486.Models
             // Tạo đối tượng kết nối
             OleDbConnection oledbConn = new OleDbConnection(connectionString);
             DataTable data = null;
-            try
+            //try
             {
                 // Mở kết nối
                 oledbConn.Open();
@@ -50,14 +50,14 @@ namespace DDTBaiTapLon486.Models
                     data.Rows.RemoveAt(0);
                 }
             }
-            catch
-            {
-            }
-            finally
-            {
-                // Đóng chuỗi kết nối
-                oledbConn.Close();
-            }
+            //catch
+            //{
+            //}
+            //finally
+            //{
+            //    // Đóng chuỗi kết nối
+            //    oledbConn.Close();
+            //}
             return data;
         }
     }
