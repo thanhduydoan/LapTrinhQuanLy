@@ -137,11 +137,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GiohangsController.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
     <Compile Include="Controllers\NhaCungCapsController.cs" />
@@ -178,6 +177,14 @@
     <Compile Include="Migrations\202205071359416_Create_Table_Person.cs" />
     <Compile Include="Migrations\202205071359416_Create_Table_Person.Designer.cs">
       <DependentUpon>202205071359416_Create_Table_Person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205180503509_add_class_payment.cs" />
+    <Compile Include="Migrations\202205180503509_add_class_payment.Designer.cs">
+      <DependentUpon>202205180503509_add_class_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205180511109_update-class-payment.cs" />
+    <Compile Include="Migrations\202205180511109_update-class-payment.Designer.cs">
+      <DependentUpon>202205180511109_update-class-payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -217,11 +224,6 @@
     <Content Include="Areas\User\Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\User\Views\User\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPham\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPham\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -259,11 +261,6 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Giohangs\Create.cshtml" />
-    <Content Include="Views\Giohangs\Delete.cshtml" />
-    <Content Include="Views\Giohangs\Details.cshtml" />
-    <Content Include="Views\Giohangs\Edit.cshtml" />
-    <Content Include="Views\Giohangs\Index.cshtml" />
     <Content Include="Views\NhaCungCaps\Create.cshtml" />
     <Content Include="Views\NhaCungCaps\Delete.cshtml" />
     <Content Include="Views\NhaCungCaps\Details.cshtml" />
@@ -275,6 +272,11 @@
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Giohang\Create.cshtml" />
+    <Content Include="Views\Giohang\Delete.cshtml" />
+    <Content Include="Views\Giohang\Details.cshtml" />
+    <Content Include="Views\Giohang\Edit.cshtml" />
+    <Content Include="Views\Giohang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +321,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205071359416_Create_Table_Person.resx">
       <DependentUpon>202205071359416_Create_Table_Person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205180503509_add_class_payment.resx">
+      <DependentUpon>202205180503509_add_class_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205180511109_update-class-payment.resx">
+      <DependentUpon>202205180511109_update-class-payment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

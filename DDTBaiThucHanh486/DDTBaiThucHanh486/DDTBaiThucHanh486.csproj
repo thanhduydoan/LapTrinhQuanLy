@@ -135,7 +135,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,13 +146,23 @@
     <Compile Include="Migrations\202204190059176_Initial_Create.Designer.cs">
       <DependentUpon>202204190059176_Initial_Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205160125326_Create_Table_CartItem.cs" />
+    <Compile Include="Migrations\202205160125326_Create_Table_CartItem.Designer.cs">
+      <DependentUpon>202205160125326_Create_Table_CartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205180911324_create_table_Product.cs" />
+    <Compile Include="Migrations\202205180911324_create_table_Product.Designer.cs">
+      <DependentUpon>202205180911324_create_table_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Product.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Encryption.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\UsersRoleProvider.cs" />
@@ -205,6 +217,11 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,6 +229,8 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Areas\User\Views\Shared\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -229,6 +248,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202204190059176_Initial_Create.resx">
       <DependentUpon>202204190059176_Initial_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205160125326_Create_Table_CartItem.resx">
+      <DependentUpon>202205160125326_Create_Table_CartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205180911324_create_table_Product.resx">
+      <DependentUpon>202205180911324_create_table_Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

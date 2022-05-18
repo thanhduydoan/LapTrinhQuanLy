@@ -82,4 +82,6 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.xml
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.SqlServer.xml
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.Initial_Create.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.GenerateResource.cache
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.Create_Table_CartItem.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.AssemblyReference.cache
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.create_table_Product.resources

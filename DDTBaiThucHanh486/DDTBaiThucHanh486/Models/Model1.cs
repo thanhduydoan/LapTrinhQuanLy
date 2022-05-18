@@ -12,13 +12,13 @@ namespace DDTBaiThucHanh486.Models
             : base("name=LTQLdbcontext")
         {
         }
-
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Person> Persons { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
