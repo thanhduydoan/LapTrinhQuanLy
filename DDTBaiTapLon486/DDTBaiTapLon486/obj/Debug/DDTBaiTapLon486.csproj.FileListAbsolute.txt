@@ -91,3 +91,6 @@ H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migr
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.Create_Table_Person.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.add_class_payment.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.updateclasspayment.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.checkmodel.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.Edit_Model_SanPham.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.Edit_Model_giohang.resources

@@ -18,7 +18,8 @@ namespace DDTBaiThucHanh486.Models
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<CartItem> CartItems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

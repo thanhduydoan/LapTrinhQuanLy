@@ -1,127 +1,80 @@
-﻿using System;
+﻿using DDTBaiTapLon486.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DDTBaiTapLon486.Models;
 
 namespace DDTBaiTapLon486.Controllers
 {
     public class GiohangController : Controller
     {
+        // GET: Giohang
         private BtlDbContext db = new BtlDbContext();
-
         // GET: Giohang
         public ActionResult Index()
         {
-            return View(db.giohangs.ToList());
-        }
-
-        // GET: Giohang/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Giohang giohang = db.giohangs.Find(id);
-            if (giohang == null)
-            {
-                return HttpNotFound();
-            }
+            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
             return View(giohang);
         }
-
-        // GET: Giohang/Create
-        public ActionResult Create()
+        public RedirectToRouteResult ThemVaoGio(int SanPhamID)
         {
-            return View();
+            if (Session["giohang"] == null) // Nếu giỏ hàng chưa được khởi tạo
+            {
+                Session["giohang"] = new List<Giohang>();  // Khởi tạo Session["giohang"] là 1 List<CartItem>
+            }
+
+            List<Giohang> giohang = Session["giohang"] as List<Giohang>;  // Gán qua biến giohang 
+
+            // Kiểm tra xem sản phẩm khách đang chọn đã có trong giỏ hàng chưa
+
+            if (giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID) == null)
+            {
+                SanPham sp = db.SanPhams.Find(SanPhamID);  // tim sp theo sanPhamID
+
+                Giohang newItem = new Giohang()
+                {
+                    SanPhamID = SanPhamID,
+                    TenSanPham = sp.Tensanpham,
+                    SoLuong = 1,
+                    Hinh = sp.Hinh,
+                    DonGia = sp.Gia
+
+                };  // Tạo ra 1 CartItem mới
+
+                giohang.Add(newItem);  // Thêm CartItem vào giỏ 
+            }
+            else
+            {
+                // Nếu sản phẩm khách chọn đã có trong giỏ hàng thì không thêm vào giỏ nữa mà tăng số lượng lên.
+                Giohang cardItem = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
+                cardItem.SoLuong++;
+            }
+
+            // Action này sẽ chuyển hướng về trang chi tiết sp khi khách hàng đặt vào giỏ thành công. Bạn có thể chuyển về chính trang khách hàng vừa đứng bằng lệnh return Redirect(Request.UrlReferrer.ToString()); nếu muốn.
+            return RedirectToAction("Details", "SanPham", new { id = SanPhamID });
         }
-
-        // POST: Giohang/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDonHang,TenDonHang,Tenkhachhang,NgayBan,DonGia,SoLuong,ThanhTien")] Giohang giohang)
+        public RedirectToRouteResult SuaSoLuong(int SanPhamID, int soluongmoi)
         {
-            if (ModelState.IsValid)
+            // tìm carditem muon sua
+            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
+            Giohang itemSua = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
+            if (itemSua != null)
             {
-                db.giohangs.Add(giohang);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                itemSua.SoLuong = soluongmoi;
             }
-
-            return View(giohang);
-        }
-
-        // GET: Giohang/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Giohang giohang = db.giohangs.Find(id);
-            if (giohang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(giohang);
-        }
-
-        // POST: Giohang/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDonHang,TenDonHang,Tenkhachhang,NgayBan,DonGia,SoLuong,ThanhTien")] Giohang giohang)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(giohang).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(giohang);
-        }
-
-        // GET: Giohang/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Giohang giohang = db.giohangs.Find(id);
-            if (giohang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(giohang);
-        }
-
-        // POST: Giohang/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Giohang giohang = db.giohangs.Find(id);
-            db.giohangs.Remove(giohang);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        protected override void Dispose(bool disposing)
+        public RedirectToRouteResult XoaKhoiGio(int SanPhamID)
         {
-            if (disposing)
+            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
+            Giohang itemXoa = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
+            if (itemXoa != null)
             {
-                db.Dispose();
+                giohang.Remove(itemXoa);
             }
-            base.Dispose(disposing);
+            return RedirectToAction("Index");
         }
+        
     }
 }

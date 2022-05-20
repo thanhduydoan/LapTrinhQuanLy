@@ -11,7 +11,6 @@ namespace DDTBaiTapLon486.Models
             : base("name=BtlDbContext")
         {
         }
-
         public DbSet<Account> accounts { get; set; }
         public DbSet<KhachHang> khacHangs { get; set; }
         public DbSet<Giohang> giohangs  { get; set; }

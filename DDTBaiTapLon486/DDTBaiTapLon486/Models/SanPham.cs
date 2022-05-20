@@ -11,8 +11,10 @@ namespace DDTBaiTapLon486.Models
         [Key]
         public int Sanphamid { get; set; }
         public string Tensanpham { get; set; }
-        public float Gia { get; set; }
+        public int Gia { get; set; }
         public int Soluong { get; set; }
+        public string Hinh { get; set; }
+        public string Motasanpham { get; set; }
         public string MaNhaCungCap { get; set; }
         public NhaCungCap NhaCungCap { get; set; }
         

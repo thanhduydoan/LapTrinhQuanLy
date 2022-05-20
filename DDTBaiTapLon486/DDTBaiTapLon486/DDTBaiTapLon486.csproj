@@ -146,6 +146,7 @@
     <Compile Include="Controllers\NhaCungCapsController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\UploadExcelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +186,18 @@
     <Compile Include="Migrations\202205180511109_update-class-payment.cs" />
     <Compile Include="Migrations\202205180511109_update-class-payment.Designer.cs">
       <DependentUpon>202205180511109_update-class-payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205181234597_check model.cs" />
+    <Compile Include="Migrations\202205181234597_check model.Designer.cs">
+      <DependentUpon>202205181234597_check model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205200920130_Edit_Model_SanPham.cs" />
+    <Compile Include="Migrations\202205200920130_Edit_Model_SanPham.Designer.cs">
+      <DependentUpon>202205200920130_Edit_Model_SanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205200930019_Edit_Model_giohang.cs" />
+    <Compile Include="Migrations\202205200930019_Edit_Model_giohang.Designer.cs">
+      <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -272,11 +285,12 @@
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Giohang\Create.cshtml" />
-    <Content Include="Views\Giohang\Delete.cshtml" />
-    <Content Include="Views\Giohang\Details.cshtml" />
-    <Content Include="Views\Giohang\Edit.cshtml" />
     <Content Include="Views\Giohang\Index.cshtml" />
+    <Content Include="Views\SanPham\Create.cshtml" />
+    <Content Include="Views\SanPham\Delete.cshtml" />
+    <Content Include="Views\SanPham\Details.cshtml" />
+    <Content Include="Views\SanPham\Edit.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +341,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205180511109_update-class-payment.resx">
       <DependentUpon>202205180511109_update-class-payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205181234597_check model.resx">
+      <DependentUpon>202205181234597_check model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205200920130_Edit_Model_SanPham.resx">
+      <DependentUpon>202205200920130_Edit_Model_SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205200930019_Edit_Model_giohang.resx">
+      <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
