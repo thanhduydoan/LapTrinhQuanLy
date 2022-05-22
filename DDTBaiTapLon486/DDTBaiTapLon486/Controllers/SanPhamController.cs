@@ -13,10 +13,18 @@ namespace DDTBaiTapLon486.Controllers
     public class SanPhamController : Controller
     {
         private BtlDbContext db = new BtlDbContext();
+        Autogenkey aukey = new Autogenkey();
 
         // GET: SanPham
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var links = from l in db.SanPhams 
+                        select l;
+            if (!String.IsNullOrEmpty(searchString)) 
+            {
+                var linksearch = links.Where(s => s.Tensanpham.ToLower().Contains(searchString.ToLower())).ToList();
+                return View(linksearch);
+            }
             var sanPhams = db.SanPhams.Include(s => s.NhaCungCap);
             return View(sanPhams.ToList());
         }
@@ -50,13 +58,18 @@ namespace DDTBaiTapLon486.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Sanphamid,Tensanpham,Gia,Soluong,Hinh,Motasanpham,MaNhaCungCap")] SanPham sanPham)
         {
-            if (ModelState.IsValid)
-            {
-                db.SanPhams.Add(sanPham);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            try {
+                if (ModelState.IsValid)
+                {
+                    db.SanPhams.Add(sanPham);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch
+            {
+                ModelState.AddModelError("", "Khóa chính bị trùng");
+            }
             ViewBag.MaNhaCungCap = new SelectList(db.nhaCungCaps, "MaNhaCungCap", "TenNhaCungCap", sanPham.MaNhaCungCap);
             return View(sanPham);
         }

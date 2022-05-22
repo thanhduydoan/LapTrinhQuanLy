@@ -10,6 +10,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "SanPham", FormMethod.Get))
+{
+    <p>
+       Tìm theo tên sản phẩm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -33,33 +39,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tensanpham)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Soluong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Motasanpham)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Sanphamid }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Sanphamid }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Sanphamid })
-            <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "Giohang", new { sanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensanpham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motasanpham)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Sanphamid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Sanphamid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Sanphamid })
+                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "Giohang", new { sanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+            </td>
+        </tr>
+    }
 
 </table>

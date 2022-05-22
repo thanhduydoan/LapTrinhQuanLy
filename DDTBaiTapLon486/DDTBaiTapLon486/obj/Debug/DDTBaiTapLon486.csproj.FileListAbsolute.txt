@@ -94,3 +94,4 @@ H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migr
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.checkmodel.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.Edit_Model_SanPham.resources
 H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.Edit_Model_giohang.resources
+H:\LapTrinhQuanLy\DDTBaiTapLon486\DDTBaiTapLon486\obj\Debug\DDTBaiTapLon486.Migrations.update_models.resources

@@ -199,8 +199,13 @@
     <Compile Include="Migrations\202205200930019_Edit_Model_giohang.Designer.cs">
       <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205220312039_update_models.cs" />
+    <Compile Include="Migrations\202205220312039_update_models.Designer.cs">
+      <DependentUpon>202205220312039_update_models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Process\Autogenkey.cs" />
     <Compile Include="Models\BtlDbContext.cs" />
     <Compile Include="Models\Process\Encryption.cs" />
@@ -296,6 +301,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\User\Data\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Data\" />
     <Folder Include="Publish\" />
     <Folder Include="Uploads\Excels\" />
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205200930019_Edit_Model_giohang.resx">
       <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205220312039_update_models.resx">
+      <DependentUpon>202205220312039_update_models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

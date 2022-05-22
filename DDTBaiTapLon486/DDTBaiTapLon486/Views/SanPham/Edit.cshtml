@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>SanPham</h4>
         <hr />
@@ -76,3 +76,10 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="~/ckfinder/ckfinder.js"></script>
+<script>
+    CKEDITOR.replace("Motasanpham");
+    CKEDITOR.replace("Hinh");
+    CKFinder.setupCKEditor(null, '/ckfinder');
+</script>

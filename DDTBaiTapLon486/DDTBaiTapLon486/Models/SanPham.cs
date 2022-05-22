@@ -17,6 +17,8 @@ namespace DDTBaiTapLon486.Models
         public string Motasanpham { get; set; }
         public string MaNhaCungCap { get; set; }
         public NhaCungCap NhaCungCap { get; set; }
+        public string CategoryID { get; set; }
+        public Category Category { get; set; }
         
 
     }
