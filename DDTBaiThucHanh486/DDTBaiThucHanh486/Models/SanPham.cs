@@ -14,5 +14,6 @@ namespace DDTBaiThucHanh486.Models
         public string SoLuong { get; set; }
         public string Hinh { get; set; }
         public int DonGia { get; set; }
+        public ICollection<CartItem> CartItems { get; set; }
     }
 }

@@ -28,8 +28,8 @@ else
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="text-center"><img src="~/Content/Photos/SanPham/@item.Hinh" width="70" height="60" /> </td>
-                            <td><a target="_blank" href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID })"> @item.TenSanPham </a> </td>
+                            <td class="text-center"><img src="~/Content/Images/@item.Hinh" width="70" height="60" /> </td>
+                            <td><a target="_blank" href="@Url.Action("Details", "SanPham", new { id = item.SanPhamID })"> @item.Tensanpham </a> </td>
                             <td>
                                 <form action="@Url.Action("SuaSoLuong")" method="get">
                                     <input type="hidden" name="SanPhamID" value="@item.SanPhamID" />

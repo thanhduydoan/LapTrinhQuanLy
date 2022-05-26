@@ -4,56 +4,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
-
-@if (Model == null || Model.Count == 0)
-{
-    <p class="text-info text-center">
-        Giỏ hàng của bạn rỗng!
-    </p>
-}
-else
-{
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="table-responsive">
-                <table class="table table-bordered">
+<h2>GIỎ HÀNG CỦA BẠN</h2>
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
                     <tr>
-                        <th>Hình</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Đơn giá</th>
-                        <th>Thành tiền</th>
-                        <th></th>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
                     </tr>
+                </thead>
+                <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="text-center"><img src="~/Content/Photos/SanPham/@item.Hinh" width="70" height="60" /> </td>
-                            <td><a target="_blank" href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID })"> @item.TenSanPham </a> </td>
-                            <td>
-                                <form action="@Url.Action("SuaSoLuong")" method="get">
-                                    <input type="hidden" name="SanPhamID" value="@item.SanPhamID" />
-                                    <input type="number" min="1" step="1" name="soluongmoi" value="@item.SoLuong" />
-                                    <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
-                                </form>
-                            </td>
-                            <td> @item.DonGia.ToString("#,##0").Replace(',', '.') VNĐ </td>
-                            <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') VNĐ </td>
-
-                            <td> <a href="@Url.Action("XoaKhoiGio", new { SanPhamID = item.SanPhamID })" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="btn btn-danger btn-sm">Xóa</a> </td>
+                            <td>@item.SanPham.SanPhamID</td>
+                            <td>@item.SanPham.TenSanPham</td>
+                            <td><img src="~/Content/Images/@item.SanPham.Hinh" /></td>
+                            <td><input type="number" class="txtQuantity" data-id="@item.SanPham.SanPhamID" value="@item.Quantity" /></td>
+                            <td>@item.SanPham.DonGia</td>
+                            <td>@(Convert.ToDecimal(item.SanPham.DonGia * item.Quantity)</td>
+                            <td><a href="#" data-id="@item.SanPham.SanPhamID" class="btn-delete">Xoá</a></td>
                         </tr>
                     }
-                    <tr>
-                        <td></td>
-                        <td class="text-right">Tổng số lượng:</td>
-                        <td> @Model.Sum(m => m.SoLuong) </td>
-                        <td class="text-right">Tổng thành tiền:</td>
-                        <td>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') VNĐ </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="btn">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
     </div>
-}
+</div>
 

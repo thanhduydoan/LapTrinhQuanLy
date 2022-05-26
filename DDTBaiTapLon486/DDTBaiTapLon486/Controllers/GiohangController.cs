@@ -35,7 +35,7 @@ namespace DDTBaiTapLon486.Controllers
                 Giohang newItem = new Giohang()
                 {
                     SanPhamID = SanPhamID,
-                    TenSanPham = sp.Tensanpham,
+                    Tensanpham = sp.Tensanpham,
                     SoLuong = 1,
                     Hinh = sp.Hinh,
                     DonGia = sp.Gia

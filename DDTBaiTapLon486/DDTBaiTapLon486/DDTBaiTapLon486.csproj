@@ -140,6 +140,7 @@
     <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
@@ -199,9 +200,13 @@
     <Compile Include="Migrations\202205200930019_Edit_Model_giohang.Designer.cs">
       <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205220312039_update_models.cs" />
-    <Compile Include="Migrations\202205220312039_update_models.Designer.cs">
-      <DependentUpon>202205220312039_update_models.cs</DependentUpon>
+    <Compile Include="Migrations\202205220419109_create_table_category.cs" />
+    <Compile Include="Migrations\202205220419109_create_table_category.Designer.cs">
+      <DependentUpon>202205220419109_create_table_category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205221537599_update_model.cs" />
+    <Compile Include="Migrations\202205221537599_update_model.Designer.cs">
+      <DependentUpon>202205221537599_update_model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -291,6 +296,11 @@
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Giohang\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\SanPham\Create.cshtml" />
     <Content Include="Views\SanPham\Delete.cshtml" />
     <Content Include="Views\SanPham\Details.cshtml" />
@@ -357,8 +367,11 @@
     <EmbeddedResource Include="Migrations\202205200930019_Edit_Model_giohang.resx">
       <DependentUpon>202205200930019_Edit_Model_giohang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205220312039_update_models.resx">
-      <DependentUpon>202205220312039_update_models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205220419109_create_table_category.resx">
+      <DependentUpon>202205220419109_create_table_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205221537599_update_model.resx">
+      <DependentUpon>202205221537599_update_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

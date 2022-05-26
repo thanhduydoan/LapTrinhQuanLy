@@ -85,3 +85,7 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\vbc.exe
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\vbc.exe.config
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\vbc.rsp
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\VBCSCompiler.exe.config
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.ca.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.hihi.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.AssemblyReference.cache
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.abc.resources

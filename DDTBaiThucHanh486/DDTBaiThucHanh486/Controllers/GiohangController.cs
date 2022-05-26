@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace DDTBaiThucHanh486.Controllers
 {
@@ -11,68 +12,119 @@ namespace DDTBaiThucHanh486.Controllers
     {
         private Model1 db = new Model1();
         // GET: Giohang
+        private const string CartSession = "CartSession";
+        // GET: Cart
         public ActionResult Index()
         {
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
-            return View(giohang);
-        }
-        public RedirectToRouteResult ThemVaoGio(int SanPhamID)
-        {
-            if (Session["giohang"] == null) // Nếu giỏ hàng chưa được khởi tạo
+            var cart = Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
             {
-                Session["giohang"] = new List<CartItem>();  // Khởi tạo Session["giohang"] là 1 List<CartItem>
+                list = (List<CartItem>)cart;
             }
+            return View(list);
+        }
 
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;  // Gán qua biến giohang 
-
-            // Kiểm tra xem sản phẩm khách đang chọn đã có trong giỏ hàng chưa
-
-            if (giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID) == null) 
+        public JsonResult DeleteAll()
+        {
+            Session[CartSession] = null;
+            return Json(new
             {
-                SanPham sp = db.SanPhams.Find(SanPhamID);  // tim sp theo sanPhamID
+                status = true
+            });
+        }
 
-                CartItem newItem = new CartItem()
+        public JsonResult Delete(string id)
+        {
+            var sessionCart = (List<CartItem>)Session[CartSession];
+            sessionCart.RemoveAll(x => x.SanPham.SanPhamID == id);
+            Session[CartSession] = sessionCart;
+            return Json(new
+            {
+                status = true
+            });
+        }
+        public JsonResult Update(string cartModel)
+        {
+            var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
+            var sessionCart = (List<CartItem>)Session[CartSession];
+
+            foreach (var item in sessionCart)
+            {
+                var jsonItem = jsonCart.SingleOrDefault(x => x.SanPham.SanPhamID == item.SanPham.SanPhamID);
+                if (jsonItem != null)
                 {
-                    SanPhamID = SanPhamID,
-                    TenSanPham = sp.TenSanPham,
-                    SoLuong = 1,
-                    Hinh = sp.Hinh,
-                    DonGia = sp.DonGia
+                    item.Quantity = jsonItem.Quantity;
+                }
+            }
+            Session[CartSession] = sessionCart;
+            return Json(new
+            {
+                status = true
+            });
+        }
+        public ActionResult AddItem(string productId, int soluong)
+        {
 
-                };  // Tạo ra 1 CartItem mới
+            var product = db.SanPhams.FirstOrDefault(c => c.SanPhamID == productId);
+            var cart = Session[CartSession];
+            if (cart != null)
+            {
+                var list = (List<CartItem>)cart;
+                if (list.Exists(x => x.SanPham.SanPhamID == productId))
+                {
 
-                giohang.Add(newItem);  // Thêm CartItem vào giỏ 
+                    foreach (var item in list)
+                    {
+                        if (item.SanPham.SanPhamID == productId)
+                        {
+                            item.Quantity += soluong;
+                        }
+                    }
+                }
+                else
+                {
+                    //tạo mới đối tượng cart item
+
+                    var item = new CartItem();
+                    item.SanPham = product;
+                    item.Quantity = soluong;
+                    list.Add(item);
+                }
+                //Gán vào session
+                Session[CartSession] = list;
             }
             else
             {
-                // Nếu sản phẩm khách chọn đã có trong giỏ hàng thì không thêm vào giỏ nữa mà tăng số lượng lên.
-                CartItem cardItem = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-                cardItem.SoLuong++;
-            }
-
-            // Action này sẽ chuyển hướng về trang chi tiết sp khi khách hàng đặt vào giỏ thành công. Bạn có thể chuyển về chính trang khách hàng vừa đứng bằng lệnh return Redirect(Request.UrlReferrer.ToString()); nếu muốn.
-            return RedirectToAction("Details", "SanPham", new { id = SanPhamID });
-        }
-        public RedirectToRouteResult SuaSoLuong(int SanPhamID, int soluongmoi)
-        {
-            // tìm carditem muon sua
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
-            CartItem itemSua = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-            if (itemSua != null)
-            {
-                itemSua.SoLuong = soluongmoi;
+                //tạo mới đối tượng cart item
+                var item = new CartItem();
+                item.SanPham = product;
+                item.Quantity = soluong;
+                var list = new List<CartItem>();
+                list.Add(item);
+                //Gán vào session
+                Session[CartSession] = list;
             }
             return RedirectToAction("Index");
         }
-        public RedirectToRouteResult XoaKhoiGio(int SanPhamID)
+        [HttpGet]
+        public ActionResult Payment()
         {
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
-            CartItem itemXoa = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-            if (itemXoa != null)
+            var cart = Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
             {
-                giohang.Remove(itemXoa);
+                list = (List<CartItem>)cart;
             }
-            return RedirectToAction("Index");
+            return View(list);
+        }
+        public ActionResult Success()
+        {
+            return View();
+        }
+        public ActionResult UnSuccess()
+        {
+            return View();
         }
 
     }

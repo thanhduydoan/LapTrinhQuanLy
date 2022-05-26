@@ -9,7 +9,7 @@ namespace DDTBaiTapLon486.Models
     public class SanPham
     {
         [Key]
-        public int Sanphamid { get; set; }
+        public int SanPhamID { get; set; }
         public string Tensanpham { get; set; }
         public int Gia { get; set; }
         public int Soluong { get; set; }
@@ -19,7 +19,8 @@ namespace DDTBaiTapLon486.Models
         public NhaCungCap NhaCungCap { get; set; }
         public string CategoryID { get; set; }
         public Category Category { get; set; }
-        
+        public ICollection<Giohang> Giohangs { get; set; }
+
 
     }
 }

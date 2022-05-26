@@ -21,5 +21,7 @@ namespace DDTBaiTapLon486.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+        public System.Data.Entity.DbSet<DDTBaiTapLon486.Models.Category> Categories { get; set; }
     }
 }

@@ -46,10 +46,9 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.SanPhamID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.SanPhamID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.SanPhamID }) |
-                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "GioHang", new { sanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+                <a class="btn btn-success btn-sm" href="@Url.Action("AddItem", "Giohang", new { SanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
             </td>
         </tr>
     }
-
 </table>
 

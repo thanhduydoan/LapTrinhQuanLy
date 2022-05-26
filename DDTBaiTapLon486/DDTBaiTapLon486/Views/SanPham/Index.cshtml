@@ -13,11 +13,14 @@
 @using (Html.BeginForm("Index", "SanPham", FormMethod.Get))
 {
     <p>
-       Tìm theo tên sản phẩm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+        Tìm theo tên sản phẩm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
     </p>
 }
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)
         </th>
@@ -43,6 +46,9 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
             </td>
             <td>
@@ -61,10 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Motasanpham)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Sanphamid }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Sanphamid }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Sanphamid })
-                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "Giohang", new { sanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ </a>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SanPhamID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SanPhamID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SanPhamID })
+                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "Giohang", new { SanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span> </a>
             </td>
         </tr>
     }

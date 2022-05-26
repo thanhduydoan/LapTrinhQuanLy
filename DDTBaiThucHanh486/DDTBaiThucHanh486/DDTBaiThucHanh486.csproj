@@ -157,6 +157,18 @@
     <Compile Include="Migrations\202205191006381_CRUD_SanPham_CartItem.Designer.cs">
       <DependentUpon>202205191006381_CRUD_SanPham_CartItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205221613445_ca.cs" />
+    <Compile Include="Migrations\202205221613445_ca.Designer.cs">
+      <DependentUpon>202205221613445_ca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205230242558_hihi.cs" />
+    <Compile Include="Migrations\202205230242558_hihi.Designer.cs">
+      <DependentUpon>202205230242558_hihi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205241450055_abc.cs" />
+    <Compile Include="Migrations\202205241450055_abc.Designer.cs">
+      <DependentUpon>202205241450055_abc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Product.cs" />
     <Compile Include="Models\Account.cs" />
@@ -188,6 +200,7 @@
     <Content Include="Areas\User\Views\web.config" />
     <Content Include="Areas\User\Views\Home_Le\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Controllers\cartController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -258,6 +271,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205191006381_CRUD_SanPham_CartItem.resx">
       <DependentUpon>202205191006381_CRUD_SanPham_CartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205221613445_ca.resx">
+      <DependentUpon>202205221613445_ca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205230242558_hihi.resx">
+      <DependentUpon>202205230242558_hihi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205241450055_abc.resx">
+      <DependentUpon>202205241450055_abc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
