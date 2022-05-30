@@ -135,6 +135,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -148,10 +149,6 @@
     <Compile Include="Migrations\202205160125326_Create_Table_CartItem.cs" />
     <Compile Include="Migrations\202205160125326_Create_Table_CartItem.Designer.cs">
       <DependentUpon>202205160125326_Create_Table_CartItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205180911324_create_table_Product.cs" />
-    <Compile Include="Migrations\202205180911324_create_table_Product.Designer.cs">
-      <DependentUpon>202205180911324_create_table_Product.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202205191006381_CRUD_SanPham_CartItem.cs" />
     <Compile Include="Migrations\202205191006381_CRUD_SanPham_CartItem.Designer.cs">
@@ -169,10 +166,13 @@
     <Compile Include="Migrations\202205241450055_abc.Designer.cs">
       <DependentUpon>202205241450055_abc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205281530441_dsad.cs" />
+    <Compile Include="Migrations\202205281530441_dsad.Designer.cs">
+      <DependentUpon>202205281530441_dsad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Product.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Encryption.cs" />
@@ -189,6 +189,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\2021-08-06.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -200,7 +201,6 @@
     <Content Include="Areas\User\Views\web.config" />
     <Content Include="Areas\User\Views\Home_Le\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\Controllers\cartController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -211,6 +211,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -231,12 +232,13 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Giohang\Index.cshtml" />
     <Content Include="Views\SanPham\Create.cshtml" />
     <Content Include="Views\SanPham\Delete.cshtml" />
     <Content Include="Views\SanPham\Details.cshtml" />
     <Content Include="Views\SanPham\Edit.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\Giohang\ShowToCart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -244,7 +246,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Areas\User\Views\Shared\" />
-    <Folder Include="Content\Images\" />
+    <Folder Include="Scripts\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -266,9 +268,6 @@
     <EmbeddedResource Include="Migrations\202205160125326_Create_Table_CartItem.resx">
       <DependentUpon>202205160125326_Create_Table_CartItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205180911324_create_table_Product.resx">
-      <DependentUpon>202205180911324_create_table_Product.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205191006381_CRUD_SanPham_CartItem.resx">
       <DependentUpon>202205191006381_CRUD_SanPham_CartItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205241450055_abc.resx">
       <DependentUpon>202205241450055_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205281530441_dsad.resx">
+      <DependentUpon>202205281530441_dsad.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

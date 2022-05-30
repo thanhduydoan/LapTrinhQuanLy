@@ -208,14 +208,18 @@
     <Compile Include="Migrations\202205221537599_update_model.Designer.cs">
       <DependentUpon>202205221537599_update_model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205300431181_alter_clas_KhachHang.cs" />
+    <Compile Include="Migrations\202205300431181_alter_clas_KhachHang.Designer.cs">
+      <DependentUpon>202205300431181_alter_clas_KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Process\Autogenkey.cs" />
     <Compile Include="Models\BtlDbContext.cs" />
     <Compile Include="Models\Process\Encryption.cs" />
     <Compile Include="Models\Process\ExcelProcess.cs" />
-    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\Person.cs" />
@@ -230,6 +234,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\2021-08-06.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -258,6 +263,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -295,7 +301,6 @@
     <Content Include="Views\Person\Details.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\Giohang\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
@@ -306,12 +311,12 @@
     <Content Include="Views\SanPham\Details.cshtml" />
     <Content Include="Views\SanPham\Edit.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\Giohang\ShowToCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\User\Data\" />
-    <Folder Include="Content\Images\" />
     <Folder Include="Data\" />
     <Folder Include="Publish\" />
     <Folder Include="Uploads\Excels\" />
@@ -372,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205221537599_update_model.resx">
       <DependentUpon>202205221537599_update_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300431181_alter_clas_KhachHang.resx">
+      <DependentUpon>202205300431181_alter_clas_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,22 +24,14 @@ namespace DDTBaiThucHanh486.Controllers
         // GET: SanPham/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPham sanPham = db.SanPhams.Find(id);
-            if (sanPham == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sanPham);
+            return View(db.SanPhams.Where(s => s.SanPhamID == id).FirstOrDefault());
         }
 
         // GET: SanPham/Create
         public ActionResult Create()
         {
-            return View();
+            SanPham sp = new SanPham();
+            return View(sp);
         }
 
         // POST: SanPham/Create
@@ -46,16 +39,26 @@ namespace DDTBaiThucHanh486.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SanPhamID,TenSanPham,SoLuong,Hinh,DonGia")] SanPham sanPham)
+       public ActionResult Create(SanPham sp)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.SanPhams.Add(sanPham);
+                if(sp.ImageUpload!=null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(sp.ImageUpload.FileName);
+                    string extension = Path.GetExtension(sp.ImageUpload.FileName);
+                    fileName = fileName + extension;
+                    sp.Hinh = "~/Content/Images/" + fileName;
+                    sp.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"), fileName));
+                }
+                db.SanPhams.Add(sp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(sanPham);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: SanPham/Edit/5

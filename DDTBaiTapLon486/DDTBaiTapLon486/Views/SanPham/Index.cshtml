@@ -25,13 +25,13 @@
             @Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tensanpham)
+            @Html.DisplayNameFor(model => model.TenSanPham)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gia)
+            @Html.DisplayNameFor(model => model.DonGia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Soluong)
+            @Html.DisplayNameFor(model => model.SoLuong)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Hinh)
@@ -52,13 +52,13 @@
                 @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tensanpham)
+                @Html.DisplayFor(modelItem => item.TenSanPham)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gia)
+                @Html.DisplayFor(modelItem => item.DonGia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Soluong)
+                @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Hinh)
@@ -69,8 +69,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.SanPhamID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.SanPhamID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SanPhamID })
-                <a class="btn btn-success btn-sm" href="@Url.Action("ThemVaoGio", "Giohang", new { SanPhamID = Url.RequestContext.RouteData.Values["id"] })"> <span class="glyphicon glyphicon-shopping-cart"></span> </a>
+                @Html.ActionLink("Delete", "Delete", new { id = item.SanPhamID }) |
+                <a href="/Giohang/AddToCart/@item.SanPhamID">Thêm vào giỏ hàng</a>
             </td>
         </tr>
     }

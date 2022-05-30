@@ -1,0 +1,59 @@
+﻿@model DDTBaiTapLon486.Models.Cart
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowToCart</h2>
+@if (Model != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Giá</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.cartItems)
+            {
+                double total = item._shopping_product.DonGia * item._shopping_quantity;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item._shopping_product.TenSanPham)
+                    </td>
+                    <td>
+                        <img scr="@Url.Content(item._shopping_product.Hinh)" style="width:100px;height:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item._shopping_product.DonGia)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Update_Quantity_Cart", "Giohang"))
+                        {
+                            <input type="hidden" value="@item._shopping_product.SanPhamID" name="ID_Product" />
+                            <input type="number" value="@item._shopping_quantity" name="Quantity" />
+                            <input type="submit" value="Update Quantity" />
+                        }
+                    </td>
+                    <td>
+                        Total = @total
+                    </td>
+                    <td>
+                        <a href="/ShoppingCart/RemoveCart/@item._shopping_product.SanPhamID">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Sum total: @Model.Total_Money()</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="@Url.Action("Index","SanPham")">Tiếp tục mua hàng</a>
+}
+

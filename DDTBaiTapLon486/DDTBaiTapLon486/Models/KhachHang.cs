@@ -13,6 +13,5 @@ namespace DDTBaiTapLon486.Models
             public string Tenkhachhang { get; set; }
             public int SDT { get; set; }
             public string Diachi { get; set; }
-            public ICollection<Giohang> giohangs { get; set; }
     }
 }

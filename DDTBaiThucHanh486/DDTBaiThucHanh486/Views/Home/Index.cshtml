@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DDTBaiThucHanh486.Models.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<head>
+    <style>
+        .card {
+            width: 250px;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+        img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        #margin-card {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-sm-4 col-lg-3" id="margin-card">
+                <div class="card">
+                    @Html.DisplayFor(model => item.TenSanPham)
+                    <img src="@Url.Content(item.Hinh)" style="height:200px;width:200px;margin:10px"/>
+                    Price: @Html.DisplayFor(model => item.DonGia)
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

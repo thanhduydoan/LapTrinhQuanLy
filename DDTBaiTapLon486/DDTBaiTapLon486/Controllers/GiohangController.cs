@@ -9,72 +9,47 @@ namespace DDTBaiTapLon486.Controllers
 {
     public class GiohangController : Controller
     {
-        // GET: Giohang
         private BtlDbContext db = new BtlDbContext();
-        // GET: Giohang
-        public ActionResult Index()
+        public Cart GetCart()
         {
-            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
-            return View(giohang);
+            Cart cart = Session["Cart"] as Cart;
+            if (cart == null || Session["Cart"] == null)
+            {
+                cart = new Cart();
+                Session["Cart"] = cart;
+            }
+            return cart;
         }
-        public RedirectToRouteResult ThemVaoGio(int SanPhamID)
+        public ActionResult AddToCart(int id)
         {
-            if (Session["giohang"] == null) // Nếu giỏ hàng chưa được khởi tạo
+            var pro = db.SanPhams.SingleOrDefault(s => s.SanPhamID == id);
+            if (pro != null)
             {
-                Session["giohang"] = new List<Giohang>();  // Khởi tạo Session["giohang"] là 1 List<CartItem>
+                GetCart().Add(pro);
             }
-
-            List<Giohang> giohang = Session["giohang"] as List<Giohang>;  // Gán qua biến giohang 
-
-            // Kiểm tra xem sản phẩm khách đang chọn đã có trong giỏ hàng chưa
-
-            if (giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID) == null)
-            {
-                SanPham sp = db.SanPhams.Find(SanPhamID);  // tim sp theo sanPhamID
-
-                Giohang newItem = new Giohang()
-                {
-                    SanPhamID = SanPhamID,
-                    Tensanpham = sp.Tensanpham,
-                    SoLuong = 1,
-                    Hinh = sp.Hinh,
-                    DonGia = sp.Gia
-
-                };  // Tạo ra 1 CartItem mới
-
-                giohang.Add(newItem);  // Thêm CartItem vào giỏ 
-            }
-            else
-            {
-                // Nếu sản phẩm khách chọn đã có trong giỏ hàng thì không thêm vào giỏ nữa mà tăng số lượng lên.
-                Giohang cardItem = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-                cardItem.SoLuong++;
-            }
-
-            // Action này sẽ chuyển hướng về trang chi tiết sp khi khách hàng đặt vào giỏ thành công. Bạn có thể chuyển về chính trang khách hàng vừa đứng bằng lệnh return Redirect(Request.UrlReferrer.ToString()); nếu muốn.
-            return RedirectToAction("Details", "SanPham", new { id = SanPhamID });
+            return RedirectToAction("ShowToCart", "Giohang");
         }
-        public RedirectToRouteResult SuaSoLuong(int SanPhamID, int soluongmoi)
+        public ActionResult ShowToCart()
         {
-            // tìm carditem muon sua
-            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
-            Giohang itemSua = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-            if (itemSua != null)
-            {
-                itemSua.SoLuong = soluongmoi;
-            }
-            return RedirectToAction("Index");
+            if (Session["Cart"] == null)
+                return RedirectToAction("ShowToCart", "Giohang");
+            Cart cart = Session["Cart"] as Cart;
+            return View(cart);
         }
-        public RedirectToRouteResult XoaKhoiGio(int SanPhamID)
+        public ActionResult Update_Quantity_Cart(FormCollection form)
         {
-            List<Giohang> giohang = Session["giohang"] as List<Giohang>;
-            Giohang itemXoa = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
-            if (itemXoa != null)
-            {
-                giohang.Remove(itemXoa);
-            }
-            return RedirectToAction("Index");
+            Cart cart = Session["Cart"] as Cart;
+            int id_pro = int.Parse(form["ID_Product"]);
+            int quantity = int.Parse(form["Quantity"]);
+            cart.Update_Quantity_Shopping(id_pro, quantity);
+            return RedirectToAction("ShowToCart", "ShoppingCart");
         }
-        
+        public ActionResult RemoveCart(int id)
+        {
+            Cart cart = Session["Cart"] as Cart;
+            cart.Remove_CartItem(id);
+            return RedirectToAction("ShowToCart", "ShoppingCart");
+        }
+
     }
 }

@@ -12,120 +12,45 @@ namespace DDTBaiThucHanh486.Controllers
     {
         private Model1 db = new Model1();
         // GET: Giohang
-        private const string CartSession = "CartSession";
-        // GET: Cart
-        public ActionResult Index()
+        public Cart GetCart()
         {
-            var cart = Session[CartSession];
-            var list = new List<CartItem>();
-            if (cart != null)
+            Cart cart = Session["Cart"] as Cart;
+            if (cart == null || Session["Cart"] == null)
             {
-                list = (List<CartItem>)cart;
+                cart = new Cart();
+                Session["Cart"] = cart;
             }
-            return View(list);
+            return cart;
         }
-
-        public JsonResult DeleteAll()
+        public ActionResult AddToCart(string id)
         {
-            Session[CartSession] = null;
-            return Json(new
+            var pro = db.SanPhams.SingleOrDefault(s => s.SanPhamID == id);
+            if (pro != null)
             {
-                status = true
-            });
-        }
-
-        public JsonResult Delete(string id)
-        {
-            var sessionCart = (List<CartItem>)Session[CartSession];
-            sessionCart.RemoveAll(x => x.SanPham.SanPhamID == id);
-            Session[CartSession] = sessionCart;
-            return Json(new
-            {
-                status = true
-            });
-        }
-        public JsonResult Update(string cartModel)
-        {
-            var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-            var sessionCart = (List<CartItem>)Session[CartSession];
-
-            foreach (var item in sessionCart)
-            {
-                var jsonItem = jsonCart.SingleOrDefault(x => x.SanPham.SanPhamID == item.SanPham.SanPhamID);
-                if (jsonItem != null)
-                {
-                    item.Quantity = jsonItem.Quantity;
-                }
+                GetCart().Add(pro);
             }
-            Session[CartSession] = sessionCart;
-            return Json(new
-            {
-                status = true
-            });
+            return RedirectToAction("ShowToCart", "Giohang");
         }
-        public ActionResult AddItem(string productId, int soluong)
+        public ActionResult ShowToCart()
         {
-
-            var product = db.SanPhams.FirstOrDefault(c => c.SanPhamID == productId);
-            var cart = Session[CartSession];
-            if (cart != null)
-            {
-                var list = (List<CartItem>)cart;
-                if (list.Exists(x => x.SanPham.SanPhamID == productId))
-                {
-
-                    foreach (var item in list)
-                    {
-                        if (item.SanPham.SanPhamID == productId)
-                        {
-                            item.Quantity += soluong;
-                        }
-                    }
-                }
-                else
-                {
-                    //tạo mới đối tượng cart item
-
-                    var item = new CartItem();
-                    item.SanPham = product;
-                    item.Quantity = soluong;
-                    list.Add(item);
-                }
-                //Gán vào session
-                Session[CartSession] = list;
-            }
-            else
-            {
-                //tạo mới đối tượng cart item
-                var item = new CartItem();
-                item.SanPham = product;
-                item.Quantity = soluong;
-                var list = new List<CartItem>();
-                list.Add(item);
-                //Gán vào session
-                Session[CartSession] = list;
-            }
-            return RedirectToAction("Index");
+            if (Session["Cart"] == null)
+                return RedirectToAction("ShowToCart", "Giohang");
+            Cart cart = Session["Cart"] as Cart;
+            return View(cart);
         }
-        [HttpGet]
-        public ActionResult Payment()
+        public ActionResult Update_Quantity_Cart(FormCollection form)
         {
-            var cart = Session[CartSession];
-            var list = new List<CartItem>();
-            if (cart != null)
-            {
-                list = (List<CartItem>)cart;
-            }
-            return View(list);
+            Cart cart = Session["Cart"] as Cart;
+            string id_pro = form["ID_Product"];
+            int quantity = int.Parse(form["Quantity"]);
+            cart.Update_Quantity_Shopping(id_pro, quantity);
+            return RedirectToAction("ShowToCart", "ShoppingCart");
         }
-        public ActionResult Success()
+        public ActionResult RemoveCart(string id)
         {
-            return View();
+            Cart cart = Session["Cart"] as Cart;
+            cart.Remove_CartItem(id);
+            return RedirectToAction("ShowToCart", "ShoppingCart");
         }
-        public ActionResult UnSuccess()
-        {
-            return View();
-        }
-
     }
 }

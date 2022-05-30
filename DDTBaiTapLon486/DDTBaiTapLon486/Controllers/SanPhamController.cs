@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,7 +24,7 @@ namespace DDTBaiTapLon486.Controllers
                         select l;
             if (!String.IsNullOrEmpty(searchString))
             {
-                var linksearch = links.Where(s => s.Tensanpham.ToLower().Contains(searchString.ToLower())).ToList();
+                var linksearch = links.Where(s => s.TenSanPham.ToLower().Contains(searchString.ToLower())).ToList();
                 return View(linksearch);
             }
             var sanPhams = db.SanPhams.Include(s => s.Category).Include(s => s.NhaCungCap);
@@ -32,26 +33,18 @@ namespace DDTBaiTapLon486.Controllers
 
         // GET: SanPham/Details/5
         [AllowAnonymous]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPham sanPham = db.SanPhams.Find(id);
-            if (sanPham == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sanPham);
+            return View(db.SanPhams.Where(s => s.SanPhamID == id).FirstOrDefault());
         }
 
         // GET: SanPham/Create
         public ActionResult Create()
         {
+            SanPham sp = new SanPham();
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             ViewBag.MaNhaCungCap = new SelectList(db.nhaCungCaps, "MaNhaCungCap", "TenNhaCungCap");
-            return View();
+            return View(sp);
         }
 
         // POST: SanPham/Create
@@ -59,23 +52,26 @@ namespace DDTBaiTapLon486.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Sanphamid,Tensanpham,Gia,Soluong,Hinh,Motasanpham,MaNhaCungCap,CategoryID")] SanPham sanPham)
+        public ActionResult Create(SanPham sp)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (sp.ImageUpload != null)
                 {
-                    db.SanPhams.Add(sanPham);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    string fileName = Path.GetFileNameWithoutExtension(sp.ImageUpload.FileName);
+                    string extension = Path.GetExtension(sp.ImageUpload.FileName);
+                    fileName = fileName + extension;
+                    sp.Hinh = "~/Content/Images/" + fileName;
+                    sp.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"), fileName));
                 }
+                db.SanPhams.Add(sp);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch{
-                ModelState.AddModelError("", "Khóa chính bị trùng");
+            catch
+            {
+                return View();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", sanPham.CategoryID);
-            ViewBag.MaNhaCungCap = new SelectList(db.nhaCungCaps, "MaNhaCungCap", "TenNhaCungCap", sanPham.MaNhaCungCap);
-            return View(sanPham);
         }
 
         [AllowAnonymous]

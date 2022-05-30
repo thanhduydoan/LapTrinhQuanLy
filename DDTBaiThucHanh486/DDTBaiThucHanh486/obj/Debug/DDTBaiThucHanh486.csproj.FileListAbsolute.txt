@@ -47,7 +47,6 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\EntityFramework.SqlSer
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.Initial_Create.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.GenerateResource.cache
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.Create_Table_CartItem.resources
-H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.create_table_Product.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.CRUD_SanPham_CartItem.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\csc.exe.config
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\csc.rsp
@@ -87,5 +86,6 @@ H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\vbc.rsp
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\bin\roslyn\VBCSCompiler.exe.config
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.ca.resources
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.hihi.resources
-H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.AssemblyReference.cache
 H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.abc.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.Migrations.dsad.resources
+H:\LapTrinhQuanLy\DDTBaiThucHanh486\DDTBaiThucHanh486\obj\Debug\DDTBaiThucHanh486.csproj.AssemblyReference.cache

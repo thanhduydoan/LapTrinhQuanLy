@@ -7,13 +7,13 @@ namespace DDTBaiThucHanh486.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class create_table_Product : IMigrationMetadata
+    public sealed partial class dsad : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create_table_Product));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(dsad));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205180911324_create_table_Product"; }
+            get { return "202205281530441_dsad"; }
         }
         
         string IMigrationMetadata.Source
