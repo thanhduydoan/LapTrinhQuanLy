@@ -13,8 +13,9 @@
                 <th>Tên sản phẩm</th>
                 <th>Hình ảnh</th>
                 <th>Giá</th>
-                <th>Giá</th>
+                <th>Số lượng</th>
                 <th>Thành tiền</th>
+                <th>Xóa</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@
                         @using (Html.BeginForm("Update_Quantity_Cart", "Giohang"))
                         {
                             <input type="hidden" value="@item._shopping_product.SanPhamID" name="ID_Product" />
-                            <input type="number" value="@item._shopping_quantity" name="Quantity" />
+                            <input type="number" value="@item._shopping_quantity" name="Quantity" /> 
                             <input type="submit" value="Update Quantity" />
                         }
                     </td>
@@ -43,14 +44,14 @@
                         Total = @total
                     </td>
                     <td>
-                        <a href="/ShoppingCart/RemoveCart/@item._shopping_product.SanPhamID">Remove</a>
+                        <a href="/Giohang/RemoveCart/@item._shopping_product.SanPhamID">Remove</a>
                     </td>
                 </tr>
             }
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="5">Sum total: @Model.Total_Money()</td>
+                <td colspan="5" style="text-align:right">Sum total: @Model.Total_Money()</td>
             </tr>
         </tfoot>
     </table>

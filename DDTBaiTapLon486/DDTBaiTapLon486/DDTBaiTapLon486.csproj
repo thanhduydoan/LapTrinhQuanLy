@@ -235,6 +235,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\2021-08-06.png" />
+    <Content Include="Content\Images\carticon.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -275,9 +276,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\KhachHangs\Create.cshtml" />
     <Content Include="Views\KhachHangs\Delete.cshtml" />
     <Content Include="Views\KhachHangs\Details.cshtml" />
@@ -308,10 +306,11 @@
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\SanPham\Create.cshtml" />
     <Content Include="Views\SanPham\Delete.cshtml" />
-    <Content Include="Views\SanPham\Details.cshtml" />
-    <Content Include="Views\SanPham\Edit.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\Giohang\ShowToCart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SanPham\Details.cshtml" />
+    <Content Include="Views\SanPham\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

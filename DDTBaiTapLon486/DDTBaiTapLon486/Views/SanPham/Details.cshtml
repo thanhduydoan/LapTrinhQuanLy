@@ -36,14 +36,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.SoLuong)
         </dt>
 
@@ -56,7 +48,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Hinh)
+           <img src="@Url.Content(Model.Hinh)"style="height:200px;width:200px;margin:10px;"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
         </dd>
 
         <dt>

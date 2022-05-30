@@ -42,13 +42,13 @@ namespace DDTBaiTapLon486.Controllers
             int id_pro = int.Parse(form["ID_Product"]);
             int quantity = int.Parse(form["Quantity"]);
             cart.Update_Quantity_Shopping(id_pro, quantity);
-            return RedirectToAction("ShowToCart", "ShoppingCart");
+            return RedirectToAction("ShowToCart", "Giohang");
         }
         public ActionResult RemoveCart(int id)
         {
             Cart cart = Session["Cart"] as Cart;
             cart.Remove_CartItem(id);
-            return RedirectToAction("ShowToCart", "ShoppingCart");
+            return RedirectToAction("ShowToCart", "Giohang");
         }
 
     }

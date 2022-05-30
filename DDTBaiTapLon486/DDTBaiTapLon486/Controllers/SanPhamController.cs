@@ -112,19 +112,11 @@ namespace DDTBaiTapLon486.Controllers
 
         // GET: SanPham/Delete/5
         [AllowAnonymous]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPham sanPham = db.SanPhams.Find(id);
-            if (sanPham == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sanPham);
+            return View(db.SanPhams.Where(s => s.SanPhamID == id).FirstOrDefault());
         }
+        
 
         // POST: SanPham/Delete/5
         [HttpPost, ActionName("Delete")]

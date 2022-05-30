@@ -11,7 +11,7 @@ namespace DDTBaiTapLon486.Models
     {
         public SanPham()
         {
-            Hinh = "~/Content/Images/2021-08-06.png";
+            Hinh = "~/Content/Images/add-icon.jpg";
         }
         [Key]
         public int SanPhamID { get; set; }

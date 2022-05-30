@@ -234,7 +234,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\SanPham\Create.cshtml" />
     <Content Include="Views\SanPham\Delete.cshtml" />
-    <Content Include="Views\SanPham\Details.cshtml" />
     <Content Include="Views\SanPham\Edit.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\Giohang\ShowToCart.cshtml" />
