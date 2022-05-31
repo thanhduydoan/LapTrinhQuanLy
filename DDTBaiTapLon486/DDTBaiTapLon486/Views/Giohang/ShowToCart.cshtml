@@ -37,7 +37,7 @@
                         {
                             <input type="hidden" value="@item._shopping_product.SanPhamID" name="ID_Product" />
                             <input type="number" value="@item._shopping_quantity" name="Quantity" /> 
-                            <input type="submit" value="Update Quantity" />
+                            <input type="submit" value="Cập nhập số lượng" />
                         }
                     </td>
                     <td>
@@ -51,10 +51,37 @@
         </tbody>
         <tfoot>
             <tr>
+                <td colspan="5" style="text-align:center">
+                    <table style="border-collapse:separate;border-spacing:5px;">
+                        <tr>
+                            <td>Mã khách hàng:</td>
+                            <td>
+                                <input type="number" name="Makhachhang"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ giao hàng:</td>
+                            <td>
+                                <input type="text" name="Diachigiaohang" required/>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Thanh toán" class="btn btn-success"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="5" style="text-align:right">Sum total: @Model.Total_Money()</td>
             </tr>
         </tfoot>
     </table>
-    <a href="@Url.Action("Index","SanPham")">Tiếp tục mua hàng</a>
+    <a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a>
 }
 

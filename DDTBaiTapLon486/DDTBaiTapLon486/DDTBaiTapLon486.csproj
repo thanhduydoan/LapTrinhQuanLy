@@ -212,10 +212,16 @@
     <Compile Include="Migrations\202205300431181_alter_clas_KhachHang.Designer.cs">
       <DependentUpon>202205300431181_alter_clas_KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205301752586_create_table_Order.cs" />
+    <Compile Include="Migrations\202205301752586_create_table_Order.Designer.cs">
+      <DependentUpon>202205301752586_create_table_Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Process\Autogenkey.cs" />
     <Compile Include="Models\BtlDbContext.cs" />
     <Compile Include="Models\Process\Encryption.cs" />
@@ -311,6 +317,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SanPham\Details.cshtml" />
     <Content Include="Views\SanPham\Edit.cshtml" />
+    <Content Include="Views\Giohang\BagCart.cshtml" />
+    <Content Include="Views\Giohang\PaySuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -379,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205300431181_alter_clas_KhachHang.resx">
       <DependentUpon>202205300431181_alter_clas_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205301752586_create_table_Order.resx">
+      <DependentUpon>202205301752586_create_table_Order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

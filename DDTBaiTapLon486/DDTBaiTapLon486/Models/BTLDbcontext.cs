@@ -17,6 +17,8 @@ namespace DDTBaiTapLon486.Models
         public DbSet<NhaCungCap> nhaCungCaps { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

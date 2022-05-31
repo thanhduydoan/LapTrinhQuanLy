@@ -49,13 +49,18 @@ namespace DDTBaiTapLon486.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RoleID,RoleName")] Role role)
         {
-            if (ModelState.IsValid)
-            {
-                db.roles.Add(role);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            try {
+                if (ModelState.IsValid)
+                {
+                    db.roles.Add(role);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch
+            {
+                ModelState.AddModelError("", "Khóa chính bị trùng");
+            }
             return View(role);
         }
 

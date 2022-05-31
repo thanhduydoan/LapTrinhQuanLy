@@ -52,5 +52,14 @@ namespace DDTBaiTapLon486.Models
         {
             items.RemoveAll(s => s._shopping_product.SanPhamID == id);
         }
+        public int Total_Quantity()
+        {
+            return items.Sum(s => s._shopping_quantity);
+        }
+        public void ClearCart()
+        {
+            //Xóa giỏ hàng để thực hiện order
+            items.Clear();
+        }
     }
 }

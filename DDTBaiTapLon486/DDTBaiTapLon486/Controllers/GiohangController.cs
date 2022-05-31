@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace DDTBaiTapLon486.Controllers
 {
+    [Authorize(Roles = "User")]
     public class GiohangController : Controller
     {
         private BtlDbContext db = new BtlDbContext();
@@ -50,6 +51,46 @@ namespace DDTBaiTapLon486.Controllers
             cart.Remove_CartItem(id);
             return RedirectToAction("ShowToCart", "Giohang");
         }
-
+        public PartialViewResult BagCart()
+        {
+            int _t_item = 0;
+            Cart cart = Session["Cart"] as Cart;
+            if(cart != null)
+                _t_item = cart.Total_Quantity();
+                ViewBag.QuantityCart = _t_item;
+            return PartialView("BagCart");
+        }
+        public ActionResult PaySuccess()
+        {
+            return View();
+        }
+        public ActionResult CheckOut(FormCollection form)
+        {
+            try
+            {
+                Cart cart = Session["Cart"] as Cart;
+                Order order = new Order();
+                order.OrderDate = DateTime.Now;
+                order.CodeCustomer = form["Makhachhang"];
+                order.Description = form["Diachigiaohang"];
+                db.Order.Add(order);
+                foreach(var item in cart.cartItems)
+                {
+                    OrderDetail orderDetail = new OrderDetail();
+                    orderDetail.OrderID = order.OrderID;
+                    orderDetail.SanPhamID = item._shopping_product.SanPhamID;
+                    orderDetail.UnitPriceSale = item._shopping_product.DonGia;
+                    orderDetail.QuantitySale = item._shopping_quantity;
+                    db.OrderDetail.Add(orderDetail);
+                }
+                db.SaveChanges();
+                cart.ClearCart();
+                return RedirectToAction("PaySuccess", "Giohang");
+            }
+            catch
+            {
+                return Content("Lỗi thanh toán");
+            }
+        }
     }
 }
